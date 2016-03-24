@@ -15,5 +15,5 @@
 ### Write and test your code
 In this tutorial we will use [nokogiry](http://www.nokogiri.org/) to parse html document. Look through `scrabe.rb` file in current repository. Let's run it inside the `iron/ruby` image. Execute the following command in terminal:
 ```
-$ docker run --rm -it -v "$PWD":/worker -w /worker iron/ruby ruby scrabe.rb
+$ sudo docker run --rm -it -v "$PWD":/worker -w /worker iron/ruby ruby scrape.rb
 ```
