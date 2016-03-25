@@ -55,7 +55,7 @@ sudo docker push USERNAME/noko
 Now we are ready to upload our ruby code to Iron and tell Iron to run it in our new image.
 Navigate to iron.io [dashboard](https://hud.iron.io/dashboard) and create a project. In order to configure Iron credentials we need 2 environment variables: `IRON_PROJECT_ID` and `IRON_TOKEN`. Their values can be taken from your Iron [dashboard](https://hud.iron.io/dashboard):
 
-![credentials](/credentials.png "Optional title")
+![credentials](/credentials.png)
 
 <a id="package"></a>
 #### Package your code
@@ -79,3 +79,7 @@ $ iron worker queue noko
         Queued task with id='56f50050e5ca85000746e2bf'
         Check https://hud.iron.io/tq/projects/548f37e01b4e500005000090/jobs/56f50050e5ca85000746e2bf for more info
 ```
+
+Then you will be able to see the executed task on your dashboard:
+
+![completed task](/task.png)
