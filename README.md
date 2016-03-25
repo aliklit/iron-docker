@@ -62,7 +62,7 @@ zip -r noko.zip scrape.rb
 ```
 
 <a id="upload_command"></a>
-#### Upload you code
+#### Upload your code
 ```
 iron worker upload --name noko --zip noko.zip USERNAME/noko:0.0.1 ruby scrape.rb
 ```
