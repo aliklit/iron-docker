@@ -6,6 +6,7 @@
 - [Building a new image](#image)
 - [Push an image to Docker Hub](#push)
 - [Upload a code to Iron.io](#upload)
+- [Run a task on Iron server](#queue)
 
 <a id="requirements"></a>
 ### Requirements
@@ -61,8 +62,18 @@ zip -r noko.zip scrape.rb
 ```
 
 <a id="upload_command"></a>
-#### Upload command
-Upload your code:
+#### Upload you code
 ```
 iron worker upload --name noko --zip noko.zip USERNAME/noko:0.0.1 ruby scrape.rb
+```
+
+<a id="queue"></a>
+### Run your code on Iron server
+```
+$ iron worker queue noko
+----->  Configuring client
+        Project 'test' with id='548f37e01b4e500005000090'
+----->  Queueing task 'noko'
+        Queued task with id='56f50050e5ca85000746e2bf'
+        Check https://hud.iron.io/tq/projects/548f37e01b4e500005000090/jobs/56f50050e5ca85000746e2bf for more info
 ```
