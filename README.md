@@ -13,9 +13,9 @@
  - Docker installed on your machine. The installation guide is [here](https://docs.docker.com/engine/installation);
  - Docker Hub account. Register [here](https://hub.docker.com/register) if you still don't have it;
  - Iron.io account (register [here](https://hud.iron.io));
- - [Install](http://dev.iron.io/worker/cli/#installing) IronWorker command line tool (IronCli)
+ - [Install](http://dev.iron.io/worker/cli/#installing) IronWorker command line tool (IronCli).
  
-<a id="code"></a>scrape
+<a id="code"></a>
 ### Write and test your code
 In this tutorial we will use [nokogiry](http://www.nokogiri.org/) to parse html document. Look through `scrape.rb` file in current repository. Let's run it inside the `iron/ruby` image. Execute the following command in terminal:
 ```
@@ -54,6 +54,7 @@ sudo docker push USERNAME/noko
 ### Upload a code to Iron.io
 Now we are ready to upload our ruby code to Iron and tell Iron to run it in our new image.
 Navigate to iron.io [dashboard](https://hud.iron.io/dashboard) and create a project. In order to configure Iron credentials we need 2 environment variables: `IRON_PROJECT_ID` and `IRON_TOKEN`. Their values can be taken from your Iron [dashboard](https://hud.iron.io/dashboard):
+
 ![credentials](/credentials.png "Optional title")
 
 <a id="package"></a>
