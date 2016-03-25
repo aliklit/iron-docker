@@ -4,6 +4,8 @@
 - [Requirements](#requirements)
 - [Writing and testing a ruby code](#code)
 - [Building a new image](#image)
+- [Push an image to Docker Hub](#push)
+- [Upload a code to Iron.io](#upload)
 
 <a id="requirements"></a>
 ### Requirements
@@ -12,9 +14,9 @@
  - Iron.io account (register [here](https://hud.iron.io));
  - [Install](http://dev.iron.io/worker/cli/#installing) IronWorker command line tool (IronCli)
  
-<a id="code"></a>
+<a id="code"></a>scrape
 ### Write and test your code
-In this tutorial we will use [nokogiry](http://www.nokogiri.org/) to parse html document. Look through `scrabe.rb` file in current repository. Let's run it inside the `iron/ruby` image. Execute the following command in terminal:
+In this tutorial we will use [nokogiry](http://www.nokogiri.org/) to parse html document. Look through `scrape.rb` file in current repository. Let's run it inside the `iron/ruby` image. Execute the following command in terminal:
 ```
 $ sudo docker run --rm -it -v "$PWD":/worker -w /worker iron/ruby ruby scrape.rb
 ```
@@ -38,4 +40,29 @@ where `USERNAME` is your user name in Docker Hub, `noko` is the image name (can 
 Let's run our test ruby script in created image:
 ```
 sudo docker run --rm -it -v "$PWD":/worker -w /worker USERNAME/noko:0.0.1 ruby scrape.rb
+```
+
+<a id="push"></a>
+### Push an image to Docker Hub
+Once you’ve built or created a new image you can push it to Docker Hub using the `docker push` command. This allows you to share it with others.
+```
+sudo docker push USERNAME/noko
+```
+
+<a id="upload"></a>
+### Upload a code to Iron.io
+Now we are ready to upload our ruby code to Iron and tell Iron to run it in our new image.
+Navigate to iron.io [dashboard](https://hud.iron.io/dashboard) and create a project. In order to configure Iron credentials we need 2 environment variables: `IRON_PROJECT_ID` and `IRON_TOKEN`. Their values can be taken from your Iron [dashboard](https://hud.iron.io/dashboard).
+
+<a id="package"></a>
+#### Package your code
+```
+zip -r noko.zip scrape.rb
+```
+
+<a id="upload_command"></a>
+#### Upload command
+Upload your code:
+```
+iron worker upload --name noko --zip noko.zip USERNAME/noko:0.0.1 ruby scrape.rb
 ```
